@@ -1,0 +1,37 @@
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+ 
+//BF time limit exceeded
+
+var isAnagram = function(s, t) {
+    //delete letter one by one from t, the order of delete comes from s, if t is all deleted after s is all iterated then pass
+    const len = s.length;
+    if (s.length !== t.length){
+        return false;
+    }
+    if(len == 0){
+        return true;
+    }
+    
+    const arr = []
+    for (i=0;i < len; i++){
+        arr.push(s[i])
+    }
+    console.log(arr)
+    
+    for(i = 0; i < len; i++){ //index of char in t
+        for(j = 0; j < len; j++){ // index of elements in arr
+
+            if(t[i] == arr[j]){
+                arr.splice(j,1);
+            }
+        }
+    }
+    if(arr.length == 0 ){
+        return true
+    }
+    return false
+};
