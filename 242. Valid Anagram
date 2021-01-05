@@ -83,6 +83,8 @@ var isAnagram = function(s, t) {
  * @param {string} t
  * @return {boolean}
  */
+ 
+ //use map
 var isAnagram = function(s, t) {
 
    //use map
