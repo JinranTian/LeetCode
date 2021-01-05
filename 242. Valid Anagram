@@ -35,3 +35,45 @@ var isAnagram = function(s, t) {
     }
     return false
 };
+
+
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+ 
+ //sort both compare
+ 
+var isAnagram = function(s, t) {
+
+    //sort both string, compare
+    
+    const len = s.length
+
+    if (s.length !== t.length){
+        return false;
+    }
+    if(len == 0){
+        return true;
+    }
+    
+    const arr = []
+    for (i=0;i < len; i++){
+        arr.push(s[i])
+    }
+    arr.sort()
+    
+    const arr1 = []
+    for (i=0;i < len; i++){
+        arr1.push(t[i])
+    }
+    arr1.sort()
+
+    for(i = 0; i< len; i++){
+        if(arr[i] !== arr1[i]){
+            return false      
+        }
+    }
+    return true
+}
