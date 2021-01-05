@@ -1,0 +1,49 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+
+    //can not have close before open, closes have to be last come first serve
+
+    const len = s.length
+    if(len == 0){
+        return true
+    }
+    const arr = []
+    const open = ["(","[","{"] 
+    for (i = 0; i < len; i++){
+        if(open.includes(s[i])){
+            arr.push(s[i])
+        }else{
+            if(s[i] == ")"){
+                if(arr.pop()!=="(")
+                    {
+                        return false
+                    }
+            }
+            if(s[i] == "]"){
+                if(arr.pop()!=="[")
+                    {
+                        return false
+                    }
+            }
+            if(s[i] == "}"){
+                if(arr.pop()!=="{")
+                    {
+                        return false
+                    }
+            } 
+        }
+    }
+
+    
+    return arr.length == 0
+    
+};
+
+这个解法的思路
+
+通过在一个array上的操作 来实时解决判断string是否符合要求这个问题
+核心为 把string拆开看 拆开成“最简句” 
+data structure: stack
