@@ -85,6 +85,7 @@ var isAnagram = function(s, t) {
  */
  
  //use map
+把s string中的字母作为key 出现次数作为value 存入map  然后loop过t每当 t中出现的字母 就从map中对应的字母的值减去一
 var isAnagram = function(s, t) {
 
    //use map
