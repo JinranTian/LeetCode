@@ -1,0 +1,29 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isPalindrome = function(s) {
+    //reformat string to all upper case char/numbers only
+    const len = s.length;
+    const arr = []
+    s = s.toUpperCase();
+ 
+    for (i = 0; i < len; i++){
+        if((s[i].charCodeAt()>=65 && s[i].charCodeAt()<=90 ) || (s[i].charCodeAt()>=48 && s[i].charCodeAt()<=57))
+        {
+            arr.push(s[i])
+        }
+    }
+
+    //check if it's palindrome: 
+    const len1 = arr.length
+    for(i=0; i< len1 ; i++){
+        if(arr[len1-i-1] !== arr[i]){
+            return false
+        }
+    }
+    return true
+    
+    
+    
+};
