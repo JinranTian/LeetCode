@@ -27,3 +27,55 @@ var isPalindrome = function(s) {
     
     
 };
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+//2 pointer: 两个指正从s两端往中间夹;遇到不符合的字符则看下一个
+
+var isPalindrome = function(s) {
+    //two pointer
+    const len = s.length
+    if(len == 0){
+        return true
+    }
+
+    var p1 = 0
+    var p2 = len - 1
+    
+    s = s.toUpperCase();
+    
+    while((p1<p2)){
+        while(!((s[p1].charCodeAt()>=65 && s[p1].charCodeAt()<=90 ) || (s[p1].charCodeAt()>=48 && s[p1].charCodeAt()<=57))){
+          
+            p1 += 1;
+            if(p1 == len){
+                return true
+            }
+        }
+        while(!((s[p2].charCodeAt()>=65 && s[p2].charCodeAt()<=90 ) || (s[p2].charCodeAt()>=48 && s[p2].charCodeAt()<=57))){
+            p2 -= 1;
+            if(p2 < 0){
+                return true
+            }
+        } 
+      
+        if(s[p1] !== s[p2]){
+            return false
+        }else{
+            p1 += 1
+            p2 -= 1
+        }
+        
+        
+        
+    }
+    
+    return true
+    
+    
+ 
+    
+    
+};
