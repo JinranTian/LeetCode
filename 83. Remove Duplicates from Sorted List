@@ -1,4 +1,4 @@
-/**
+/**//两个p从头开始 当p1不为尾巴时，用p2去探测下一个node的值是佛与这个重复，若是则重新指向原本的下下个Node，若否则推进p1一步
  * Definition for singly-linked list.
  * function ListNode(val, next) {
  *     this.val = (val===undefined ? 0 : val)
