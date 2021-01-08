@@ -1,0 +1,39 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @param {number} sum
+ * @return {boolean}
+ */
+//dfs 以root是leaf为base case 做recursion 对所有leaf调用这个function progression step:逻辑为大树要sum 那除了root的
+//分支就要sum-root值
+// base case 1 tree nothing base case 2 
+var hasPathSum = function(root, sum) {
+    if(!root){
+        return false
+    }
+    //base case root is leaf
+    if(isLeaf(root)){
+        if (root.val == sum){
+            return true
+        }
+        return false
+    }
+
+        return (hasPathSum(root.right, sum - root.val) || hasPathSum(root.left, sum - root.val))    
+    
+};
+
+function isLeaf(node){
+    if(node.left==null && node.right==null){
+        return true
+    }
+        return false
+}
+
