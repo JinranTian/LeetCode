@@ -1,0 +1,58 @@
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+//一个记录初始位置 一个trace路线 l1和l2比 谁小 路线的下一个就是谁
+var mergeTwoLists = function(l1, l2) {
+    var l3 = new ListNode();
+    var temp = new ListNode();
+    if(l1 == null){
+        return l2
+    }
+    if(l2 == null){
+        return l1
+    }
+    if(l1.val > l2.val){
+        temp = l2
+        l3 = l2
+        l2 = l2.next
+       
+    }else{
+        temp = l1
+        l3 = l1
+        l1=l1.next
+    }
+
+    while(l1 !== null || l2 !== null){
+        if(l1 == null){
+            l3.next = l2
+            l2 = l2.next
+            l3 = l3.next
+        }else if(l2 ==null){
+            l3.next = l1
+            l1 = l1.next
+            l3 = l3.next
+        }else{
+            if(l1.val > l2.val){
+                l3.next = l2
+                l2 = l2.next
+                l3 =  l3.next
+            }else{
+                l3.next = l1
+                l1=l1.next
+                l3 = l3.next
+            }
+        }
+        
+    }
+    return temp
+    
+};
